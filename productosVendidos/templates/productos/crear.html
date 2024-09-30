@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block titulo %} Agregar Producto {% endblock %}
+
+{% block contenido %}
+
+<div class="container">
+  <h1>Registro de Detalle del Producto</h1>
+
+  <!-- Mostrar mensaje de éxito si el formulario es válido -->
+  {% if formulario1.is_valid %}
+      <div class="alert alert-success">
+          ¡Producto guardado exitosamente!
+      </div>
+  {% endif %}
+
+  <!-- Segundo formulario: Ticket Detalle -->
+  <h2>Detalle del Producto</h2>
+  <form method="post">
+      {% csrf_token %}
+      {{ formulario1.as_p }} <!-- Representa el formulario de detalle -->
+      <button type="submit">Guardar Producto</button>
+  </form>
+</div>
+
+{% endblock %}

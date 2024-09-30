@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block titulo %} Lista de Productos Vendidos {% endblock %}
+
+{% block contenido %} 
+
+<div class="card">
+    
+    <div class="card-header">
+        <a
+            name=""
+            id=""
+            class="btn btn-success"
+            href="{% url 'ccliente' %}"
+            role="button"
+            >AGREGAR CLIENTE</a
+        >
+        
+        <a
+            name=""
+            id=""
+            class="btn btn-success"
+            href="{% url 'crear' %}"
+            role="button"
+            >AGREGAR PRODUCTO</a
+        >
+        
+    </div>
+    <div class="card-body" >
+        <h4 class="card-title" aling=>PRODUCTOS VENDIDOS</h4>
+        <div
+            class="table-responsive"
+        >
+            <table
+                class="table table-primary"
+            >
+                <thead>
+                    <tr>
+                        <th scope="col">ID TICKET</th>
+                        <th scope="col">FECHA</th>
+                        <th scope="col">CLIENTE</th>
+                        <th scope="col">TOTAL</th>
+                        <th scope="col">ACCIONES</th>
+                    </tr>
+                </thead>
+                <tbody> 
+                    {% for producto in productos %}
+                    <tr class="">
+                        <td>{{ producto.id_ticketCabecera }}</td>
+                        <td>{{ producto.fecha }}</td>
+                        <td>{{ producto.nombreCliente }}</td>
+                        <td>{{ producto.total }}</td>
+                        <td> 
+                            <a name="" id="" class="btn btn-info" href="{% url 'mostrar_ticket' producto.id_ticketCabecera %}" role="button">MOSTRAR</a>
+
+
+
+                            <a name="" id="" class="btn btn-danger" href="#" role="button">ELIMINAR</a>
+                        <td> 
+                    </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+    
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block titulo %} Detalles del Ticket {% endblock %}
+
+{% block contenido %}
+<div class="card">
+    <div class="card-header">
+        <h4>Detalles del Ticket</h4>
+    </div>
+    <div class="card-body">
+        <h5>ID Ticket: {{ ticket_cabecera.id_ticketCabecera }}</h5>
+        <h5>Fecha: {{ ticket_cabecera.fecha }}</h5>
+        <h5>Cliente: {{ ticket_cabecera.nombreCliente }}</h5>
+        <h5>Celular: {{ ticket_cabecera.celular }}</h5>
+        <h5>Distrito: {{ ticket_cabecera.distrito }}</h5>
+        <h5>Total: {{ ticket_cabecera.total }}</h5>
+
+        <h6>Detalles del Ticket:</h6>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Precio</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for detalle in ticket_detalles %}
+                <tr>
+                    <td>{{ detalle.nombreProducto }}</td>
+                    <td>{{ detalle.cantidad }}</td>
+                    <td>{{ detalle.precioUnidad }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
